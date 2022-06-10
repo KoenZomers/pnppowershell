@@ -1,13 +1,11 @@
 ﻿using PnP.Framework;
 using PnP.PowerShell.Commands.Base;
 using PnP.PowerShell.Commands.Utilities;
-using System.Collections.Generic;
 using System.Management.Automation;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using TextCopy;
 
 namespace PnP.PowerShell.Commands.AzureAD
 {
@@ -31,6 +29,7 @@ namespace PnP.PowerShell.Commands.AzureAD
         public SwitchParameter ShowConsentUrl;
 
         [Parameter(Mandatory = false, ParameterSetName = ParameterSet_SHOWURL)]
+        [Parameter(Mandatory = false, ParameterSetName = ParameterSet_REGISTER)]
         public string TenantName;
 
         protected override void ProcessRecord()
@@ -55,7 +54,8 @@ namespace PnP.PowerShell.Commands.AzureAD
                      },
                     successMessageHtml: $"You successfully consented the PnP Management Shell Application for use by PnP PowerShell. Feel free to close this window.",
                     failureMessageHtml: $"You did not consent for the PnP Management Shell Application for use by PnP PowerShell. Feel free to close this browser window.",
-                    azureEnvironment: AzureEnvironment))
+                    azureEnvironment: AzureEnvironment,
+                    tenantId: TenantName))
                     {
                         try
                         {
@@ -71,7 +71,7 @@ namespace PnP.PowerShell.Commands.AzureAD
                 {
                     if (!string.IsNullOrEmpty(TenantName))
                     {
-                        messageWriter.WriteMessage($"Share the following URL with a person that has appropriate access rights on the Azure AD to grant consent for Application Registrations:\n\nhttps://login.microsoftonline.com/{TenantName}/adminconsent?client_id={PnPConnection.PnPManagementShellClientId}");
+                        messageWriter.WriteMessage($"Share the following URL with a person that has appropriate access rights on the Azure AD to grant consent for Application Registrations:\n\n{endPoint}/{TenantName}/adminconsent?client_id={PnPConnection.PnPManagementShellClientId}");
                     }
                     else
                     {
@@ -79,9 +79,9 @@ namespace PnP.PowerShell.Commands.AzureAD
                         {
                             BrowserHelper.OpenBrowserForInteractiveLogin(url, port, !LaunchBrowser, source);
                         },
-                    successMessageHtml: $"You successfully logged in. Feel free to close this window.",
-                    failureMessageHtml: $"You failed to login succesfully. Feel free to close this browser window.",
-                                        azureEnvironment: AzureEnvironment))
+                            successMessageHtml: $"You successfully logged in. Feel free to close this window.",
+                            failureMessageHtml: $"You failed to login succesfully. Feel free to close this browser window.",
+                            azureEnvironment: AzureEnvironment))
                         {
                             var tenantId = "{M365-Tenant-Id}";
                             var accessToken = string.Empty;
@@ -123,7 +123,7 @@ namespace PnP.PowerShell.Commands.AzureAD
                                     }
                                 }
                             }
-                            messageWriter.WriteMessage($"Share the following URL with a person that has appropriate access rights on the Azure AD to grant consent for Application Registrations:\n\nhttps://login.microsoftonline.com/{tenantId}/adminconsent?client_id={PnPConnection.PnPManagementShellClientId}");
+                            messageWriter.WriteMessage($"Share the following URL with a person that has appropriate access rights on the Azure AD to grant consent for Application Registrations:\n\n{endPoint}/{tenantId}/adminconsent?client_id={PnPConnection.PnPManagementShellClientId}");
                             if (tenantId == "{M365-Tenant-Id}")
                             {
                                 messageWriter.WriteMessage($"To get M365-Tenant-Id value, use the Get-PnPTenantId cmdlet:\nhttps://pnp.github.io/powershell/cmdlets/Get-PnPTenantId.html");
@@ -132,8 +132,18 @@ namespace PnP.PowerShell.Commands.AzureAD
                     }
                 }
                 messageWriter.Finished = true;
-            }, cancellationToken);
-            messageWriter.Start();
+            }, source.Token)
+            .ContinueWith(t =>
+            {
+                t.Exception.Handle(e =>
+                {
+                    messageWriter.WriteWarning(e.Message);
+                    messageWriter.Finished = true;
+                    return true;
+                });
+            }, TaskContinuationOptions.OnlyOnFaulted);
+
+            messageWriter.Start();            
         }
 
         protected override void StopProcessing()
