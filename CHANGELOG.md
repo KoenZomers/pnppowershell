@@ -37,7 +37,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - Added capability to Debug the module in Visual Studio. [#1880](https://github.com/pnp/powershell/pull/1880)
 - Added `Set-PnPTeamsChannelUser` cmdlet to update the role of user in a private channel. [#1865](https://github.com/pnp/powershell/pull/1865)
 - Added `Restart-PnPFlowRun` which allows for a failed Power Automate flow run to be retried [#1915](https://github.com/pnp/powershell/pull/1915)
-- Added optional `-Connection` parameter to `Get-PnPConnection`, `Get-PnPContext` and `Set-PnPContext` which allows for using any of these for a specific connection [#1919](https://github.com/pnp/powershell/pull/1919)
+- Added optional `-Connection` parameter to `Get-PnPConnection`, `Get-PnPContext` and `Set-PnPContext` which allows for using any of these for a specific connection [#1919](https://github.com/pnp/powershell/pull/1919) , [#1958](https://github.com/pnp/powershell/pull/1958)
 - Added `-IncludeDeprecated` parameter to `Get-PnPTerm` cmdlet to fetch deprecated terms if specified [#1903](https://github.com/pnp/powershell/pull/1903)
 - Added `-IncludeContentType` parameter, which if specified will retrieve content type information of the list items. [#1921](https://github.com/pnp/powershell/pull/1921)
 - Added optional `-ValidateConnection` to `Connect-PnPOnline` which will check if the site you are connecting to exists and if not, will throw an exception [#1924](https://github.com/pnp/powershell/pull/1924)
@@ -47,6 +47,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - Added `Add-PnPListItemAttachment` cmdlet to provide ability to upload a file as an attachment to a SharePoint list item. [#1932](https://github.com/pnp/powershell/pull/1932)
 - Added `Remove-PnPListItemAttachment` cmdlet to provide ability to delete a list item attachment. [#1932](https://github.com/pnp/powershell/pull/1932)
 - Added `Get-PnPListItemAttachment` cmdlet to download the attachments from a list item. [#1932](https://github.com/pnp/powershell/pull/1932)
+- Added `-ExemptFromBlockDownloadOfNonViewableFiles` parameter to `Set-PnPList` cmdlet to configure access capabilites for unmanaged devices at list level. [#1973](https://github.com/pnp/powershell/pull/1973)
+- Added `-PercentComplete`, `-Priority`, `-StartDateTime`, `-DueDateTime` and `-Description` to `Add-PnPPlannerTask` [#1964](https://github.com/pnp/powershell/pull/1964)
 
 ### Changed
 - Changed `Sync-PnPSharePointUserProfilesFromAzureActiveDirectory` to map users based on their Ids instead which should resolve some issues around user identities reporting not to exist. You can use the new `-IdType` option to switch it back to `PrincipalName` if needed.  [#1752](https://github.com/pnp/powershell/pull/1752)
@@ -86,6 +88,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ### Contributors
 
+- Jim Duncan [sparkitect]
+- Arleta Wanat [PowershellScripts]
 - Yuriy Samorodov [YuriySamorodov]
 - Arleta Wanat [PowershellScripts]
 - Marc D Anderson [sympmarc]
