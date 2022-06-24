@@ -99,7 +99,7 @@ namespace PnP.PowerShell.Commands.Base
                 else
                 {
                     requiredScope = defaultResource;
-                }
+                }                
             }
             else
             {
@@ -123,6 +123,7 @@ namespace PnP.PowerShell.Commands.Base
                         requestMessage.Headers.Add("X-IDENTITY-HEADER", identityHeader);
 
                     }
+
                     var response = await httpClient.SendAsync(requestMessage).ConfigureAwait(false);
                     if (response.IsSuccessStatusCode)
                     {
@@ -130,7 +131,8 @@ namespace PnP.PowerShell.Commands.Base
                         var responseElement = JsonSerializer.Deserialize<JsonElement>(responseContent);
                         if (responseElement.TryGetProperty("access_token", out JsonElement accessTokenElement))
                         {
-                            return accessTokenElement.GetString();
+                            var accessToken = accessTokenElement.GetString();
+                            return accessToken;
                         }
                     }
                     else
@@ -142,7 +144,7 @@ namespace PnP.PowerShell.Commands.Base
             }
             else
             {
-                throw new PSInvalidOperationException("Cannot determine Managed Identity Endpoint URL to acquire token.");
+                throw new PSInvalidOperationException("Cannot determine Managed Identity Endpoint URL to acquire token. Ensure this is run in an Azure component which supports Managed Identity and that a system or user managed identity has been enabled under Identity of the Azure component.");
             }
             return null;
         }

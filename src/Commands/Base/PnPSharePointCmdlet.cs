@@ -102,9 +102,13 @@ namespace PnP.PowerShell.Commands
         {
             get
             {
-                if (Connection != null)
+                if (Connection?.ConnectionMethod == ConnectionMethod.ManagedIdentity)
                 {
-                    if (Connection.Context != null)
+                    return TokenHandler.GetManagedIdentityTokenAsync(this, HttpClient, Connection.TenantRootUrl).GetAwaiter().GetResult();
+                }
+                else
+                {
+                    if (Connection?.Context != null)
                     {
                         var settings = Microsoft.SharePoint.Client.InternalClientContextExtensions.GetContextSettings(Connection.Context);
                         if (settings != null)
