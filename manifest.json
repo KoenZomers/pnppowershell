@@ -1701,9 +1701,6 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "cmdlets/Get-PnPAvailableSensitivityLabel.md",
       "output": {
