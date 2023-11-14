@@ -91,7 +91,7 @@
 <p>Removes the specified flow.</p>
 <h2 id="syntax">SYNTAX</h2>
 <pre><code class="lang-powershell">Remove-PnPFlow -Environment &lt;PowerAutomateEnvironmentPipeBind&gt; -Identity &lt;PowerAutomateFlowPipeBind&gt; [-AsAdmin]
- [-Force] [-Connection &lt;PnPConnection&gt;] 
+ [-Force] [-ThrowExceptionIfPowerAutomateNotFound] [-Connection &lt;PnPConnection&gt;] 
 </code></pre>
 <h2 id="description">DESCRIPTION</h2>
 <p>This cmdlet removes the specified flow.</p>
@@ -101,6 +101,11 @@
 Remove-PnPFlow -Environment $environment -Identity fba63225-baf9-4d76-86a1-1b42c917a182
 </code></pre>
 <p>This removes the specified flow.</p>
+<h3 id="example-1-1">Example 1</h3>
+<pre><code class="lang-powershell">$environment = Get-PnPFlowEnvironment
+Remove-PnPFlow -Environment $environment -Identity fba63225-baf9-4d76-86a1-1b42c917a182 -ThrowExceptionIfPowerAutomateNotFound
+</code></pre>
+<p>This removes the specified flow and throws an exception if the specified flow is not present.</p>
 <h2 id="parameters">PARAMETERS</h2>
 <h3 id="-asadmin">-AsAdmin</h3>
 <p>If specified removes the flow as an administrator.</p>
@@ -146,6 +151,17 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-throwexceptionifpowerautomatenotfound">-ThrowExceptionIfPowerAutomateNotFound</h3>
+<p>Switch parameter if an exception should be thrown if the requested flow does not exist (true) or if omitted, nothing will be returned in case the flow does not exist</p>
+<pre><code class="lang-yaml">Type: SwitchParameter
+Parameter Sets: (All)
+
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
