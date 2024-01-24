@@ -2342,6 +2342,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPFileAnalyticsData.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPFileAnalyticsData.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "cmdlets/Get-PnPFileInFolder.md",
       "output": {
         ".html": {
@@ -3015,6 +3025,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPPowerPlatformSolution.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPPowerPlatformSolution.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "cmdlets/Get-PnPPowerShellTelemetryEnabled.md",
       "output": {
         ".html": {
@@ -3169,6 +3189,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Get-PnPSite.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPSiteAnalyticsData.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPSiteAnalyticsData.html"
         }
       },
       "version": ""
@@ -4385,6 +4415,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "cmdlets/New-PnPContainerType.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/New-PnPContainerType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "cmdlets/New-PnPEntraIDGroup.md",
       "output": {
         ".html": {
@@ -4939,6 +4979,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Remove-PnPContainer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Remove-PnPContainerType.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Remove-PnPContainerType.html"
         }
       },
       "version": ""
@@ -6019,6 +6069,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Restart-PnPFlowRun.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Restore-PnPDeletedContainer.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Restore-PnPDeletedContainer.html"
         }
       },
       "version": ""
