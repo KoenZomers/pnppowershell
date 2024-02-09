@@ -19,7 +19,6 @@ using PnP.PowerShell.Commands.Base;
 using System.Threading.Tasks;
 using PnP.Framework.Provisioning.Providers.Markdown;
 
-
 namespace PnP.PowerShell.Commands.Provisioning.Site
 {
     [Cmdlet(VerbsCommon.Get, "PnPSiteTemplate")]
