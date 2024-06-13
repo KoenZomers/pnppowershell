@@ -73,6 +73,21 @@ Sets the sensitivity label of the group
 
 ## PARAMETERS
 
+### -AllowExternalSenders
+Allows configuring if the Microsoft 365 Group should accept e-mail from senders outside of the organisation (true) or if both internal as well as external senders can send e-mail to the e-mail address of the Microsoft 365 group (false).
+
+In the Exchange Online PowerShell cmdlet this would be the RequireSenderAuthenticationEnabled property, but then inversed, so when that would be set to $true it would not accept e-mail from outside the organisation and when set to $false it would.
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -AutoSubscribeNewMembers
 The AutoSubscribeNewMembers switch specifies whether to automatically subscribe new members that are added to the Microsoft 365 Group to conversations and calendar events. Only users that are added to the group after you enable this setting are automatically subscribed to the group.
 
@@ -239,21 +254,6 @@ The array UPN values of owners to set to the group. Note: Will replace owners.
 Type: String[]
 Parameter Sets: (All)
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -RequireSenderAuthenticationEnabled
-Allows configuring if the Microsoft 365 Group should accept e-mail from senders outside of the organisation (false) or if both internal as well as external senders can send e-mail to the e-mail address of the Microsoft 365 group (true).
-
-Alias: AllowExternalSenders
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
 Required: False
 Position: Named
 Default value: None
