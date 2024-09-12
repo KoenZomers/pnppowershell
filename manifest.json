@@ -8638,6 +8638,26 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/configuration/configuration_defaultclientid_linux_bashrc.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/configuration/configuration_defaultclientid_linux_bashrc.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/configuration/configuration_defaultclientid_windowsmenu_environmentvariables.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/configuration/configuration_defaultclientid_windowsmenu_environmentvariables.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/configuration/configuration_defaultclientid_windowsmenu_system.png",
       "output": {
         "resource": {
