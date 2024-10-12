@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Enable-PnPFlow | PnP PowerShell </title>
+    <title>Remove-PnPTenantRestrictedSearchAllowedList | PnP PowerShell </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Enable-PnPFlow | PnP PowerShell ">
+    <meta name="title" content="Remove-PnPTenantRestrictedSearchAllowedList | PnP PowerShell ">
     <meta name="generator" content="docfx ">
   <meta name="description" content="PnP PowerShell is an open source, community driven, PowerShell Module designed to work with Microsoft 365.">
     <link rel="shortcut icon" href="https://c.s-microsoft.com/favicon.ico?v2">
@@ -77,51 +77,55 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-                
+                <div class="pnp_tags">Available in the current Nightly Release only.</div>
                   <div class="contribution-panel mobile-hide pull-right">
                       <a href="https://github.com/pnp/powershell/blob/dev/documentation/#L1" title="Edit this page" class="improve-doc-lg"><i class="glyphicon glyphicon-pencil"></i></a>
                   </div>
-  <h1 id="enable-pnpflow">Enable-PnPFlow</h1>
+  <h1 id="remove-pnptenantrestrictedsearchallowedlist">Remove-PnPTenantRestrictedSearchAllowedList</h1>
 
 <h2 id="synopsis">SYNOPSIS</h2>
-<p><strong>Required Permissions</strong></p>
-<ul>
-<li>Azure: management.azure.com</li>
-</ul>
-<p>Enables a specific flow</p>
+<p>Removes site URLs from the allowed list when Restricted SharePoint Search is enabled. The URLs can be provided as a string array or read from a CSV file.</p>
 <h2 id="syntax">SYNTAX</h2>
-<pre><code class="lang-powershell">Enable-PnPFlow [-Environment &lt;PowerAutomateEnvironmentPipeBind&gt;] -Identity &lt;PowerAutomateFlowPipeBind&gt; [-AsAdmin] 
-[-Connection &lt;PnPConnection&gt;] 
+<pre><code class="lang-powershell">Remove-PnPTenantRestrictedSearchAllowedList [-SitesListFileUrl &lt;String&gt;] [-SitesList &lt;String[]&gt;] [-ContainsHeaders &lt;SwitchParameter&gt;] [-Connection &lt;PnPConnection&gt;] 
 </code></pre>
 <h2 id="description">DESCRIPTION</h2>
-<p>This cmdlet enables a specific flow</p>
+<p>Removes site URLs from the allowed list when Restricted SharePoint Search is enabled. The URLs can be provided directly as a string array or read from a CSV file. At present, a maximum of 100 sites can be added to the allowed list.</p>
 <h2 id="examples">EXAMPLES</h2>
-<h3 id="example-1">Example 1</h3>
-<pre><code class="lang-powershell">Enable-PnPFlow -Identity fba63225-baf9-4d76-86a1-1b42c917a182
+<h3 id="example-1">EXAMPLE 1</h3>
+<pre><code class="lang-powershell">Remove-PnPTenantRestrictedSearchAllowedList -SitesListFileUrl &quot;C:\temp\sitelist.csv&quot; -ContainsHeader
 </code></pre>
-<p>Enables the specified flow in the default environment</p>
-<h3 id="example-2">Example 2</h3>
-<pre><code class="lang-powershell">Enable-PnPFlow -Environment (Get-PnPPowerPlatformEnvironment -Identity &quot;myenvironment&quot;) -Identity fba63225-baf9-4d76-86a1-1b42c917a182
+<p>Removes site URLs from the allowed list from a CSV file. The first line, which is assumed to be a header, is skipped.</p>
+<p>Sample CSV file content with Header</p>
+<p>SiteUrl
+<a href="https://contoso.sharepoint.com/sites/Company311">https://contoso.sharepoint.com/sites/Company311</a>
+<a href="https://contoso.sharepoint.com/sites/contosoportal">https://contoso.sharepoint.com/sites/contosoportal</a></p>
+<h3 id="example-2">EXAMPLE 2</h3>
+<pre><code class="lang-powershell">Remove-PnPTenantRestrictedSearchAllowedList -SitesListFileUrl &quot;C:\temp\sitelist.csv&quot; 
 </code></pre>
-<p>Enables the specified flow in the specified environment</p>
+<p>Removes site URLs from the allowed list from a CSV file.</p>
+<p>Sample CSV file content without Header</p>
+<p><a href="https://contoso.sharepoint.com/sites/Company311">https://contoso.sharepoint.com/sites/Company311</a>
+<a href="https://contoso.sharepoint.com/sites/contosoportal">https://contoso.sharepoint.com/sites/contosoportal</a></p>
+<h3 id="example-3">EXAMPLE 3</h3>
+<pre><code class="lang-powershell">Remove-PnPTenantRestrictedSearchAllowedList -SitesList @(&quot;https://contoso.sharepoint.com/sites/Company311&quot;,&quot;https://contoso.sharepoint.com/sites/contosoportal&quot;)
+</code></pre>
+<p>Removes the specified sites from the allowed list.</p>
 <h2 id="parameters">PARAMETERS</h2>
-<h3 id="-environment">-Environment</h3>
-<p>The name of the Power Platform environment or an Environment instance. If omitted, the default environment will be used.</p>
-<pre><code class="lang-yaml">Type: PowerPlatformEnvironmentPipeBind
+<h3 id="-connection">-Connection</h3>
+<p>Optional connection to be used by the cmdlet. Retrieve the value for this parameter by either specifying -ReturnConnection on Connect-PnPOnline or by executing Get-PnPConnection.</p>
+<pre><code class="lang-yaml">Type: PnPConnection
 Parameter Sets: (All)
-Aliases:
 
 Required: False
 Position: Named
-Default value: The default environment
-Accept pipeline input: True
+Default value: None
+Accept pipeline input: False
 Accept wildcard characters: False
 </code></pre>
-<h3 id="-identity">-Identity</h3>
-<p>Identity of the flow to enable</p>
-<pre><code class="lang-yaml">Type: PowerAutomateFlowPipeBind
-Parameter Sets: (All)
-Aliases:
+<h3 id="-siteslistfileurl">-SitesListFileUrl</h3>
+<p>Specifies the path of the CSV file that contains a list of site URLs to be removed from the allowed list when the tenant is set to Restricted Tenant Search Mode.</p>
+<pre><code class="lang-yaml">Type: String
+Parameter Sets: File
 
 Required: True
 Position: Named
@@ -129,33 +133,31 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 </code></pre>
-<h3 id="-asadmin">-AsAdmin</h3>
-<p>Enable the flow as an administrator</p>
-<pre><code class="lang-yaml">Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+<h3 id="-siteslist">-SitesList</h3>
+<p>Specifies a collection of sites to remove from the allowed list.</p>
+<pre><code class="lang-yaml">Type: String[]
+Parameter Sets: SiteList
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 </code></pre>
-<h3 id="-connection">-Connection</h3>
-<p>Optional connection to be used by the cmdlet.
-Retrieve the value for this parameter by either specifying -ReturnConnection on Connect-PnPOnline or by executing Get-PnPConnection.</p>
-<pre><code class="lang-yaml">Type: PnPConnection
-Parameter Sets: (All)
-Aliases:
+<h3 id="-containsheader">-Containsheader</h3>
+<p>If specified, this switch skips the first line from the CSV file, which is assumed to be a header.</p>
+<pre><code class="lang-yaml">Type: SwitchParamter
+Parameter Sets: File
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 </code></pre>
 <h2 id="related-links">RELATED LINKS</h2>
-<p><a href="https://aka.ms/m365pnp">Microsoft 365 Patterns and Practices</a></p>
+<p><a href="https://learn.microsoft.com/sharepoint/restricted-sharepoint-search">How does Restricted SharePoint Search work?</a>
+<a href="https://aka.ms/m365pnp">Microsoft 365 Patterns and Practices</a></p>
 
 </article>
           </div>
