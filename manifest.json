@@ -261,6 +261,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/scriptsamples.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/scriptsamples.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/telemetry.md",
       "output": {
         ".html": {
@@ -2198,6 +2208,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Get-PnPCopilotAdminLimitedMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPCopilotAgent.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPCopilotAgent.html"
         }
       },
       "version": ""
