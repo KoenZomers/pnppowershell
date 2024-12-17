@@ -2304,6 +2304,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPFileRetentionLabel.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPFileRetentionLabel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "cmdlets/Get-PnPFileSensitivityLabel.md",
       "output": {
         ".html": {
