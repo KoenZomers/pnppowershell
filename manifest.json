@@ -4254,6 +4254,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPUserProfilePhoto.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPUserProfilePhoto.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "cmdlets/Get-PnPUserProfileProperty.md",
       "output": {
         ".html": {
@@ -4278,6 +4288,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Get-PnPVivaConnectionsDashboardACE.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPVivaEngageCommunity.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPVivaEngageCommunity.html"
         }
       },
       "version": ""
@@ -5108,6 +5128,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/New-PnPUser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/New-PnPVivaEngageCommunity.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/New-PnPVivaEngageCommunity.html"
         }
       },
       "version": ""
@@ -6334,6 +6364,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "cmdlets/Remove-PnPUserProfilePhoto.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Remove-PnPUserProfilePhoto.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "cmdlets/Remove-PnPView.md",
       "output": {
         ".html": {
@@ -6348,6 +6388,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Remove-PnPVivaConnectionsDashboardACE.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Remove-PnPVivaEngageCommunity.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Remove-PnPVivaEngageCommunity.html"
         }
       },
       "version": ""
@@ -7808,6 +7858,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Set-PnPUserOneDriveQuota.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Set-PnPUserProfilePhoto.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Set-PnPUserProfilePhoto.html"
         }
       },
       "version": ""
