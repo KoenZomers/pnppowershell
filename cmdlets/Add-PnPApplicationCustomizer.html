@@ -86,7 +86,7 @@
 <h2 id="synopsis">SYNOPSIS</h2>
 <p>Adds a SharePoint Framework client side extension application customizer to a specific site collection or web</p>
 <h2 id="syntax">SYNTAX</h2>
-<pre><code class="lang-powershell">Add-PnPApplicationCustomizer [-Title &lt;String&gt;] [-Description &lt;String&gt;] [-Sequence &lt;Int32&gt;]
+<pre><code class="lang-powershell">Add-PnPApplicationCustomizer [-Name &lt;String&gt;] [-Title &lt;String&gt;] [-Description &lt;String&gt;] [-Sequence &lt;Int32&gt;]
  [-Scope &lt;CustomActionScope&gt;] -ClientSideComponentId &lt;Guid&gt; [-ClientSideComponentProperties &lt;String&gt;]
  [-ClientSideHostProperties &lt;String&gt;] [-Connection &lt;PnPConnection&gt;] 
 </code></pre>
@@ -140,6 +140,16 @@ Accept wildcard characters: False
 </code></pre>
 <h3 id="-description">-Description</h3>
 <p>The description of the application customizer</p>
+<pre><code class="lang-yaml">Type: String
+Parameter Sets: (All)
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-name">-Name</h3>
+<p>The name of the application customizer</p>
 <pre><code class="lang-yaml">Type: String
 Parameter Sets: (All)
 Required: False
