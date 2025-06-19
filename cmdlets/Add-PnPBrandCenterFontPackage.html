@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Set-PnPAzureADGroup | PnP PowerShell </title>
+    <title>Add-PnPBrandCenterFontPackage | PnP PowerShell </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Set-PnPAzureADGroup | PnP PowerShell ">
+    <meta name="title" content="Add-PnPBrandCenterFontPackage | PnP PowerShell ">
     <meta name="generator" content="docfx ">
   <meta name="description" content="PnP PowerShell is an open source, community driven, PowerShell Module designed to work with Microsoft 365.">
     <link rel="shortcut icon" href="https://c.s-microsoft.com/favicon.ico?v2">
@@ -77,120 +77,50 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-                
+                <div class="pnp_tags">Available in the current Nightly Release only.</div>
                   <div class="contribution-panel mobile-hide pull-right">
                       <a href="https://github.com/pnp/powershell/blob/dev/documentation/#L1" title="Edit this page" class="improve-doc-lg"><i class="glyphicon glyphicon-pencil"></i></a>
                   </div>
-  <h1 id="set-pnpazureadgroup">Set-PnPAzureADGroup</h1>
+  <h1 id="add-pnpbrandcenterfontpackage">Add-PnPBrandCenterFontPackage</h1>
 
 <h2 id="synopsis">SYNOPSIS</h2>
-<p><strong>Required Permissions</strong></p>
-<ul>
-<li>Microsoft Graph API: Group.ReadWrite.All</li>
-</ul>
-<p>Sets the properties of a specific Azure Active Directory group.</p>
+<p>Allows a font package to be created in the Brand Center</p>
 <h2 id="syntax">SYNTAX</h2>
-<pre><code class="lang-powershell">Set-PnPAzureADGroup -Identity &lt;AzureADGroupPipeBind&gt; [-DisplayName &lt;String&gt;] [-Description &lt;String&gt;]
- [-Owners &lt;String[]&gt;] [-Members &lt;String[]&gt;] [-SecurityEnabled] [-MailEnabled] 
- [-HideFromAddressLists &lt;Boolean&gt;] [-HideFromOutlookClients &lt;Boolean&gt;] 
- 
+<pre><code class="lang-powershell">Add-PnPBrandCenterFontPackage -Name &lt;String&gt; -Store &lt;Site|Tenant&gt; -DisplayFont &lt;BrandCenterFontPipeBind&gt; -ContentFont &lt;String&gt; -TitleFont &lt;BrandCenterFontPipeBind&gt; -TitleFontStyle &lt;String&gt; -HeadlineFont &lt;BrandCenterFontPipeBind&gt; -HeadlineFontStyle &lt;String&gt;&gt; -BodyFont &lt;BrandCenterFontPipeBind&gt; -BodyFontStyle &lt;String&gt;&gt; -InteractiveFont &lt;BrandCenterFontPipeBind&gt; -InteractiveFontStyle &lt;String&gt; [-Visible &lt;Boolean&gt;] [-Connection &lt;PnPConnection&gt;] [-Verbose]
 </code></pre>
 <h2 id="description">DESCRIPTION</h2>
-<p>This cmdlet sets the properties of a specific Azure Active Directory group. This can be a security, distribution or Microsoft 365 group.</p>
+<p>This cmdlet allows a font package to be created in the Brand Center. Fonts can be uploaded to the Brand Center using <a href="Add-PnPBrandCenterFond.md">Add-PnPBrandCenterFond</a>. To see the available fonts, as well as the font styles available in each font, use <a href="Get-PnPBrandCenterFont.html">Get-PnPBrandCenterFont</a>.</p>
 <h2 id="examples">EXAMPLES</h2>
 <h3 id="example-1">EXAMPLE 1</h3>
-<pre><code class="lang-powershell">Set-PnPAzureADGroup -Identity $group -DisplayName &quot;My DisplayName&quot;
+<pre><code class="lang-powershell">Add-PnPBrandCenterFontPackage -Name &quot;My Font Package&quot; -Store Tenant -DisplayFont &quot;My font&quot; -ContentFont &quot;My other font&quot; -TitleFont &quot;My font&quot; -TitleFontStyle &quot;Normal&quot; -HeadlineFont &quot;My font&quot; -HeadlineFontStyle &quot;Normal&quot; -BodyFont &quot;My other font&quot; -BodyFontStyle &quot;Regular&quot; -InteractiveFont &quot;My other font&quot; -InteractiveFontStyle &quot;Regular&quot;
 </code></pre>
-<p>Sets the display name of the group where $group is a Group entity.</p>
-<h3 id="example-2">EXAMPLE 2</h3>
-<pre><code class="lang-powershell">Set-PnPAzureADGroup -Identity $groupId -Description &quot;My Description&quot; -DisplayName &quot;My DisplayName&quot;
-</code></pre>
-<p>Sets the display name and description of a group based upon its ID.</p>
-<h3 id="example-3">EXAMPLE 3</h3>
-<pre><code class="lang-powershell">Set-PnPAzureADGroup -Identity $group -Owners demo@contoso.com
-</code></pre>
-<p>Sets demo@contoso.com as the owner of the group.</p>
+<p>This will create a font package in the Tenant Brand Center with the specified fonts and styles. The package will be available for use in the Brand Center.</p>
 <h2 id="parameters">PARAMETERS</h2>
-<h3 id="-securityenabled">-SecurityEnabled</h3>
-<p>Sets the Azure Active Directory group to be allowed to be used for setting permissions.</p>
-<pre><code class="lang-yaml">Type: SwitchParameter
-Parameter Sets: (All)
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-mailenabled">-MailEnabled</h3>
-<p>Sets the Azure Active Directory group to be allowed to be used for receiving e-mail.</p>
-<pre><code class="lang-yaml">Type: SwitchParameter
-Parameter Sets: (All)
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-description">-Description</h3>
-<p>The description of the group to set.</p>
-<pre><code class="lang-yaml">Type: String
-Parameter Sets: (All)
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-displayname">-DisplayName</h3>
-<p>The display name of the group to set.</p>
-<pre><code class="lang-yaml">Type: String
-Parameter Sets: (All)
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-hidefromaddresslists">-HideFromAddressLists</h3>
-<p>Controls whether the group is hidden or shown in the Global Address List (GAL).</p>
-<pre><code class="lang-yaml">Type: Boolean
-Parameter Sets: (All)
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-hidefromoutlookclients">-HideFromOutlookClients</h3>
-<p>Controls whether the group shows in the Outlook left-hand navigation.</p>
-<pre><code class="lang-yaml">Type: Boolean
-Parameter Sets: (All)
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-identity">-Identity</h3>
-<p>The identity of the Azure Active Directory group.</p>
-<pre><code class="lang-yaml">Type: AzureADGroupPipeBind
+<h3 id="-bodyfont">-BodyFont</h3>
+<p>The name, id or font instance of the font to be used for body text in the Brand Center.</p>
+<pre><code class="lang-yaml">Type: BrandCenterFontPipeBind
 Parameter Sets: (All)
 
 Required: True
 Position: Named
 Default value: None
-Accept pipeline input: True (ByValue)
+Accept pipeline input: False
 Accept wildcard characters: False
 </code></pre>
-<h3 id="-members">-Members</h3>
-<p>The array UPN values of members to set to the group. Note: Will replace members.</p>
-<pre><code class="lang-yaml">Type: String[]
+<h3 id="-bodyfontstyle">-BodyFontStyle</h3>
+<p>The name of the font style to be used for body text in the Brand Center. Use the <a href="Get-PnPBrandCenterFont.html">Get-PnPBrandCenterFont</a> cmdlet to see the available styles for each font.</p>
+<pre><code class="lang-yaml">Type: string
+Parameter Sets: (All)
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-connection">-Connection</h3>
+<p>Optional connection to be used by the cmdlet. Retrieve the value for this parameter by either specifying -ReturnConnection on Connect-PnPOnline or by executing <a href="Get-PnPConnection.html">Get-PnPConnection</a>.</p>
+<pre><code class="lang-yaml">Type: PnPConnection
 Parameter Sets: (All)
 
 Required: False
@@ -199,20 +129,133 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 </code></pre>
-<h3 id="-owners">-Owners</h3>
-<p>The array UPN values of owners to set to the group. Note: Will replace owners.</p>
-<pre><code class="lang-yaml">Type: String[]
+<h3 id="-contentfont">-ContentFont</h3>
+<p>The name, id or font instance of the font to be used for content text in the Brand Center.</p>
+<pre><code class="lang-yaml">Type: BrandCenterFontPipeBind
+Parameter Sets: (All)
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-displayfont">-DisplayFont</h3>
+<p>The name, id or font instance of the font to be used for display text in the Brand Center.</p>
+<pre><code class="lang-yaml">Type: BrandCenterFontPipeBind
+Parameter Sets: (All)
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-headlinefont">-HeadlineFont</h3>
+<p>The name, id or font instance of the font to be used for headline text in the Brand Center.</p>
+<pre><code class="lang-yaml">Type: BrandCenterFontPipeBind
+Parameter Sets: (All)
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-headlinefontstyle">-HeadlineFontStyle</h3>
+<p>The name of the font style to be used for headline text in the Brand Center. Use the <a href="Get-PnPBrandCenterFont.html">Get-PnPBrandCenterFont</a> cmdlet to see the available styles for each font.</p>
+<pre><code class="lang-yaml">Type: string
+Parameter Sets: (All)
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-interactivefont">-InteractiveFont</h3>
+<p>The name, id or font instance of the font to be used for interactive text in the Brand Center.</p>
+<pre><code class="lang-yaml">Type: BrandCenterFontPipeBind
+Parameter Sets: (All)
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-interactivefontstyle">-InteractiveFontStyle</h3>
+<p>The name of the font style to be used for interactive text in the Brand Center. Use the <a href="Get-PnPBrandCenterFont.html">Get-PnPBrandCenterFont</a> cmdlet to see the available styles for each font.</p>
+<pre><code class="lang-yaml">Type: string
+Parameter Sets: (All)
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-name">-Name</h3>
+<p>The name you want to give to the font package. This name will be used to identify the package in the Brand Center.</p>
+<pre><code class="lang-yaml">Type: String
+Parameter Sets: (All)
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-store">-Store</h3>
+<p>Indicates the store in which the font package should be created. The following values are available:</p>
+<ul>
+<li>Tenant: The font packages configured in the tenant Brand Center</li>
+<li>Site: The font packages configured in the site collection Brand Center</li>
+</ul>
+<pre><code class="lang-yaml">Type: Store
 Parameter Sets: (All)
 
 Required: False
 Position: Named
+Default value: Tenant
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-titlefont">-TitleFont</h3>
+<p>The name, id or font instance of the font to be used for title text in the Brand Center.</p>
+<pre><code class="lang-yaml">Type: BrandCenterFontPipeBind
+Parameter Sets: (All)
+
+Required: True
+Position: Named
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-titlefontstyle">-TitleFontStyle</h3>
+<p>The name of the font style to be used for title text in the Brand Center. Use the <a href="Get-PnPBrandCenterFont.html">Get-PnPBrandCenterFont</a> cmdlet to see the available styles for each font.</p>
+<pre><code class="lang-yaml">Type: string
+Parameter Sets: (All)
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-visible">-Visible</h3>
+<p>Indicates if the font package should be visible in the Brand Center. The default is true.</p>
+<pre><code class="lang-yaml">Type: Boolean
+Parameter Sets: (All)
+
+Required: False
+Position: Named
+Default value: True
 Accept pipeline input: False
 Accept wildcard characters: False
 </code></pre>
 <h2 id="related-links">RELATED LINKS</h2>
-<p><a href="https://aka.ms/m365pnp">Microsoft 365 Patterns and Practices</a>
-<a href="https://learn.microsoft.com/graph/api/group-update">Microsoft Graph documentation</a></p>
+<p><a href="https://aka.ms/m365pnp">Microsoft 365 Patterns and Practices</a></p>
 
 </article>
           </div>
