@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Remove-PnPTermLabel | PnP PowerShell </title>
+    <title>Get-PnPPowerAppPermission | PnP PowerShell </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Remove-PnPTermLabel | PnP PowerShell ">
+    <meta name="title" content="Get-PnPPowerAppPermission | PnP PowerShell ">
     <meta name="generator" content="docfx ">
   <meta name="description" content="PnP PowerShell is an open source, community driven, PowerShell Module designed to work with Microsoft 365.">
     <link rel="shortcut icon" href="https://c.s-microsoft.com/favicon.ico?v2">
@@ -77,51 +77,86 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-                
+                <div class="pnp_tags">Available in the current Nightly Release only.</div>
                   <div class="contribution-panel mobile-hide pull-right">
                       <a href="https://github.com/pnp/powershell/blob/dev/documentation/#L1" title="Edit this page" class="improve-doc-lg"><i class="glyphicon glyphicon-pencil"></i></a>
                   </div>
-  <h1 id="remove-pnptermlabel">Remove-PnPTermLabel</h1>
+  <h1 id="get-pnppowerapppermission">Get-PnPPowerAppPermission</h1>
 
 <h2 id="synopsis">SYNOPSIS</h2>
-<p>Removes a single label/translation from a term.</p>
+<p><strong>Required Permissions</strong></p>
+<ul>
+<li>Azure: management.azure.com</li>
+<li>PowerApps: service.powerapps.com</li>
+</ul>
+<p>Returns the list of permissions assigned to a specified Power App.</p>
 <h2 id="syntax">SYNTAX</h2>
-<h3 id="by-term-id">By Term Id</h3>
-<pre><code>Remove-PnPTermLabel 
-    -Label &lt;String&gt; 
-    -Term &lt;Guid&gt; 
-    -Lcid &lt;Int32&gt; 
-    [-TermStore &lt;Guid&gt;]
-    [-Connection &lt;PnPConnection&gt;]    
-    [-Force] 
-    
-</code></pre>
-<h3 id="by-name">By Name</h3>
-<pre><code>Remove-PnPTermLabel 
-    -Label &lt;String&gt; 
-    -Term &lt;String&gt; 
-    -Lcid &lt;Int32&gt; 
-    -TermSet &lt;Name|Guid&gt; 
-    -TermGroup &lt;Name|Guid&gt; 
-    [-TermStore &lt;Guid&gt;]
-    [-Connection &lt;PnPConnection&gt;]    
-    [-Force]  
-    
+<pre><code class="lang-powershell">Get-PnPPowerAppPermission [-Environment &lt;PowerPlatformEnvironmentPipeBind&gt;] [-AsAdmin] -Identity &lt;PowerAppPipeBind&gt; 
+[-Connection &lt;PnPConnection&gt;] [-Verbose]
 </code></pre>
 <h2 id="description">DESCRIPTION</h2>
-<p>This cmdlet removes a label/translation from a term.</p>
+<p>This cmdlet returns the list of user or group permissions granted to a specific Power App.</p>
 <h2 id="examples">EXAMPLES</h2>
 <h3 id="example-1">Example 1</h3>
-<pre><code class="lang-powershell">Remove-PnPTermLabel -Label &quot;Marknadsföring&quot; -Lcid 1053 -Term 2d1f298b-804a-4a05-96dc-29b667adec62
+<pre><code class="lang-powershell">Get-PnPPowerAppPermission -Identity &quot;bde2239e-fabc-42ad-9c9e-72323413b1b0&quot;
 </code></pre>
-<p>Removes the Swedish label from the specified term.</p>
+<p>Returns the list of permissions for the specified Power App in the default environment.</p>
 <h3 id="example-2">Example 2</h3>
-<pre><code class="lang-powershell">Remove-PnPTermLabel -Label &quot;Marknadsföring&quot; -Lcid 1053 -Term &quot;Marketing&quot; -TermSet &quot;Departments&quot; -TermGroup &quot;Corporate&quot;
+<pre><code class="lang-powershell">Get-PnPPowerAppPermission -Environment (Get-PnPPowerPlatformEnvironment -Identity &quot;myenvironment&quot;) -Identity &quot;bde2239e-fabc-42ad-9c9e-72323413b1b0&quot; -AsAdmin
 </code></pre>
-<p>Removes the Swedish label from the specified term.</p>
+<p>Returns the list of permissions for the specified Power App in the given environment using admin context.</p>
 <h2 id="parameters">PARAMETERS</h2>
-<h3 id="-force">-Force</h3>
-<p>Specifying the Force parameter will skip the confirmation question.</p>
+<h3 id="-environment">-Environment</h3>
+<p>The name of the Power Platform environment or an Environment instance. If omitted, the default environment will be used.</p>
+<pre><code class="lang-yaml">Type: PowerPlatformEnvironmentPipeBind
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: The default environment
+Accept pipeline input: True
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-asadmin">-AsAdmin</h3>
+<p>If specified, returns permissions using admin privileges. If not specified, only permissions for the current user will be returned.</p>
+<pre><code class="lang-yaml">Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-identity">-Identity</h3>
+<p>The ID or instance of the Power App to retrieve permissions for.</p>
+<pre><code class="lang-yaml">Type: PowerAppPipeBind
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-connection">-Connection</h3>
+<p>Optional connection to be used by the cmdlet.<br>
+Retrieve the value for this parameter by either specifying <code>-ReturnConnection</code> on <code>Connect-PnPOnline</code> or by executing <code>Get-PnPConnection</code>.</p>
+<pre><code class="lang-yaml">Type: PnPConnection
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-verbose">-Verbose</h3>
+<p>When provided, additional debug statements will be shown while executing the cmdlet.</p>
 <pre><code class="lang-yaml">Type: SwitchParameter
 Parameter Sets: (All)
 
@@ -129,88 +164,6 @@ Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-label">-Label</h3>
-<p>The label to remove.</p>
-<pre><code class="lang-yaml">Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-lcid">-Lcid</h3>
-<p>Language code identifier of the term label.</p>
-<pre><code class="lang-yaml">Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-term">-Term</h3>
-<p>Identity of term to update. Either a name or a GUID.</p>
-<pre><code class="lang-yaml">Type: Guid
-Parameter Sets: By Term Id
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<pre><code class="lang-yaml">Type: String
-Parameter Sets: By Name
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-termgroup">-TermGroup</h3>
-<p>The term group containing the term set.</p>
-<pre><code class="lang-yaml">Type: Guid or String
-Parameter Sets: By Name
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-termset">-TermSet</h3>
-<p>The term set containing the term.</p>
-<pre><code class="lang-yaml">Type: Guid or String
-Parameter Sets: By Name
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-termstore">-TermStore</h3>
-<p>The Term store containing the term group.</p>
-<pre><code class="lang-yaml">Type: Guid
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 </code></pre>
 <h2 id="related-links">RELATED LINKS</h2>
