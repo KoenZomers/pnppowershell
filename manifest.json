@@ -1554,6 +1554,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "cmdlets/Copy-PnPFileMetadata.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Copy-PnPFileMetadata.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "cmdlets/Copy-PnPFolder.md",
       "output": {
         ".html": {
@@ -1748,6 +1758,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Enable-PnPPriviledgedIdentityManagement.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Enable-PnPPrivilegedIdentityManagement.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Enable-PnPPrivilegedIdentityManagement.html"
         }
       },
       "version": ""
@@ -3414,6 +3434,26 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPPrivilegedIdentityManagementEligibleAssignment.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPPrivilegedIdentityManagementEligibleAssignment.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPPrivilegedIdentityManagementRole.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPPrivilegedIdentityManagementRole.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "cmdlets/Get-PnPProfileCardProperty.md",
       "output": {
         ".html": {
@@ -4618,6 +4658,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Grant-PnPTenantServicePrincipalPermission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Import-PnPFlow.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Import-PnPFlow.html"
         }
       },
       "version": ""
