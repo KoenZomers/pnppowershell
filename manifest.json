@@ -6204,6 +6204,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "cmdlets/Remove-PnPPowerAppPermission.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Remove-PnPPowerAppPermission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "cmdlets/Remove-PnPProfileCardProperty.md",
       "output": {
         ".html": {
@@ -9858,6 +9868,16 @@
       "output": {
         "resource": {
           "relative_path": "images/docker/dockercontainers.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/dotnetfoundation_v4_small.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/dotnetfoundation_v4_small.png"
         }
       },
       "version": ""

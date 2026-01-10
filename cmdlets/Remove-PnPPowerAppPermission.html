@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Add-PnPOrgAssetsLibrary | PnP PowerShell </title>
+    <title>Remove-PnPPowerAppPermission | PnP PowerShell </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Add-PnPOrgAssetsLibrary | PnP PowerShell ">
+    <meta name="title" content="Remove-PnPPowerAppPermission | PnP PowerShell ">
     <meta name="generator" content="docfx ">
   <meta name="description" content="PnP PowerShell is an open source, community driven, PowerShell Module designed to work with Microsoft 365.">
     <link rel="shortcut icon" href="https://c.s-microsoft.com/favicon.ico?v2">
@@ -77,91 +77,72 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-                
+                <div class="pnp_tags">Available in the current Nightly Release only.</div>
                   <div class="contribution-panel mobile-hide pull-right">
                       <a href="https://github.com/pnp/powershell/blob/dev/documentation/#L1" title="Edit this page" class="improve-doc-lg"><i class="glyphicon glyphicon-pencil"></i></a>
                   </div>
-  <h1 id="add-pnporgassetslibrary">Add-PnPOrgAssetsLibrary</h1>
+  <h1 id="remove-pnppowerapppermission">Remove-PnPPowerAppPermission</h1>
 
 <h2 id="synopsis">SYNOPSIS</h2>
 <p><strong>Required Permissions</strong></p>
 <ul>
-<li>SharePoint: Access to the SharePoint Tenant Administration site</li>
+<li>Azure: management.azure.com</li>
+<li>PowerApps: service.powerapps.com</li>
+<li>Microsoft Graph: User.Read.All, Group.Read.All</li>
 </ul>
-<p>Adds a given document library as an organizational asset source</p>
+<p>Removes user, group and (Everyone in organization) permissions from a Power App</p>
 <h2 id="syntax">SYNTAX</h2>
-<pre><code class="lang-powershell">Add-PnPOrgAssetsLibrary -LibraryUrl &lt;String&gt; [-ThumbnailUrl &lt;String&gt;] [-CdnType &lt;SPOTenantCdnType&gt;] [-OrgAssetType &lt;OrgAssetType&gt;] [-DefaultOriginAdded &lt;bool&gt;] [-IsCopilotSearchable &lt;bool&gt;] [-Connection &lt;PnPConnection&gt;] 
+<pre><code class="lang-powershell">Remove-PnPPowerAppPermission [-Environment &lt;PowerAutomateEnvironmentPipeBind&gt;] -Identity &lt;PowerPlatformPipeBind&gt; [-User &lt;String&gt;] [-Group &lt;String&gt;] [-Tenant] [-AsAdmin] [-Force] [-Verbose]
 </code></pre>
 <h2 id="description">DESCRIPTION</h2>
-<p>Adds a given document library as an organizational asset source in your SharePoint Online Tenant. You can specify multiple libraries, but all organizational asset sources you add must reside in the same site collection.</p>
-<p>Document libraries specified as organizational asset must be enabled as an Office 365 CDN source, either as private or public.</p>
-<p>The libraries must also have read rights for 'Everyone except external users' enabled on them. Either on library or on the entire site level.</p>
-<p>Only entire libraries can be configured as an organizational asset, folders cannot.</p>
-<p>It may take some time before this change will be reflected in the web interface.</p>
+<p>This cmdlet removes user, group, or (Everyone in organization) permissions from a PowerApp using the -User, -Group, or -Tenant parameter. Only one of these parameters can be specified at a time, and at least one must be provided.</p>
 <h2 id="examples">EXAMPLES</h2>
-<h3 id="example-1">EXAMPLE 1</h3>
-<pre><code class="lang-powershell">Add-PnPOrgAssetsLibrary -LibraryUrl &quot;https://yourtenant.sharepoint.com/sites/branding/logos&quot;
+<h3 id="example-1">Example 1</h3>
+<pre><code class="lang-powershell">Remove-PnPPowerAppPermission -Identity 9b2f87e6-4c3d-48c0-a2b6-c1b4e3e57f0f -User username@tenant.onmicrosoft.com
 </code></pre>
-<p>Adds the document library with the url &quot;logos&quot; located in the sitecollection at &quot;https://yourtenant.sharepoint.com/sites/branding&quot; as an organizational asset not specifying a thumbnail image for it and enabling the document library as a public Office 365 CDN source</p>
-<h3 id="example-2">EXAMPLE 2</h3>
-<pre><code class="lang-powershell">Add-PnPOrgAssetsLibrary -LibraryUrl &quot;https://yourtenant.sharepoint.com/sites/branding/logos&quot; -ThumbnailUrl &quot;https://yourtenant.sharepoint.com/sites/branding/logos/thumbnail.jpg&quot;
+<p>Removes the specified user permission from the specified PowerApp located in the default environment using user's UPN</p>
+<h3 id="example-2">Example 2</h3>
+<pre><code class="lang-powershell">Remove-PnPPowerAppPermission -Identity 9b2f87e6-4c3d-48c0-a2b6-c1b4e3e57f0f -User 6844c04a-8ee7-40ad-af66-28f6e948cd04
 </code></pre>
-<p>Adds the document library with the url &quot;logos&quot; located in the sitecollection at &quot;https://yourtenant.sharepoint.com/sites/branding&quot; as an organizational asset specifying the thumbnail image &quot;thumbnail.jpg&quot; residing in the same document library for it and enabling the document library as a public Office 365 CDN source</p>
-<h3 id="example-3">EXAMPLE 3</h3>
-<pre><code class="lang-powershell">Add-PnPOrgAssetsLibrary -LibraryUrl &quot;https://yourtenant.sharepoint.com/sites/branding/logos&quot; -CdnType Private
+<p>Removes the specified user permission from the specified PowerApp located in the default environment using user's Id</p>
+<h3 id="example-3">Example 3</h3>
+<pre><code class="lang-powershell">Remove-PnPPowerAppPermission -Environment (Get-PnPPowerPlatformEnvironment -Identity &quot;myenvironment&quot;) -Identity 9b2f87e6-4c3d-48c0-a2b6-c1b4e3e57f0f -User username@tenant.onmicrosoft.com -AsAdmin
 </code></pre>
-<p>Adds the document library with the url &quot;logos&quot; located in the sitecollection at &quot;https://yourtenant.sharepoint.com/sites/branding&quot; as an organizational asset not specifying a thumbnail image for it and enabling the document library as a private Office 365 CDN source</p>
+<p>Removes the specified user permission from the specified PowerApp as an admin in the specified environment</p>
+<h3 id="example-4">Example 4</h3>
+<pre><code class="lang-powershell">Remove-PnPPowerAppPermission -Environment (Get-PnPPowerPlatformEnvironment -Identity &quot;myenvironment) -Identity 9b2f87e6-4c3d-48c0-a2b6-c1b4e3e57f0f -User username@tenant.onmicrosoft.com -AsAdmin -Force
+</code></pre>
+<p>Removes the specified user permission from the specified PowerApp as admin, without asking for confirmation, in the specified environment</p>
+<h3 id="example-5">Example 5</h3>
+<pre><code class="lang-powershell">Remove-PnPPowerAppPermission -Identity &quot;3f4a2c1d-0e9d-4c1e-8b55-9e3c7f0ba7e2&quot; -Group &quot;c6c4b4e0-cd72-4d64-8ec2-cfbd0388ec16&quot; -Force
+</code></pre>
+<p>Removes the specified group's permission for the PowerApp without prompting using group id</p>
+<h3 id="example-6">Example 6</h3>
+<pre><code class="lang-powershell">Remove-PnPPowerAppPermission -Identity &quot;3f4a2c1d-0e9d-4c1e-8b55-9e3c7f0ba7e2&quot; -Group &quot;Finance Team&quot;
+</code></pre>
+<p>Removes the specified group's permission for the PowerApp using group's display name</p>
+<h3 id="example-7">Example 7</h3>
+<pre><code class="lang-powershell">Remove-PnPPowerAppPermission -Identity &quot;3f4a2c1d-0e9d-4c1e-8b55-9e3c7f0ba7e2&quot; -Tenant
+</code></pre>
+<p>Removes the (Everyone in organization) permission for the PowerApp using -Tenant parameter</p>
 <h2 id="parameters">PARAMETERS</h2>
-<h3 id="-cdntype">-CdnType</h3>
-<p>Indicates what type of Office 365 CDN source the document library will be added to</p>
-<pre><code class="lang-yaml">Type: SPOTenantCdnType
+<h3 id="-environment">-Environment</h3>
+<p>The name of the Power Platform environment or an Environment instance. If omitted, the default environment will be used.</p>
+<pre><code class="lang-yaml">Type: PowerPlatformEnvironmentPipeBind
 Parameter Sets: (All)
-Accepted values: Public, Private
+Aliases:
 
 Required: False
 Position: Named
-Default value: Public
-Accept pipeline input: False
+Default value: The default environment
+Accept pipeline input: True
 Accept wildcard characters: False
 </code></pre>
-<h3 id="-connection">-Connection</h3>
-<p>Optional connection to be used by the cmdlet. Retrieve the value for this parameter by either specifying -ReturnConnection on Connect-PnPOnline or by executing Get-PnPConnection.</p>
-<pre><code class="lang-yaml">Type: PnPConnection
+<h3 id="-identity">-Identity</h3>
+<p>The Name, Id or instance of the PowerApp to remove the permissions from.</p>
+<pre><code class="lang-yaml">Type: PowerPlatformPipeBind
 Parameter Sets: (All)
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-defaultoriginadded">-DefaultOriginAdded</h3>
-<p>Indicates that if the OFfice 365 CDN would not be enabled yet for the tenant, that it should be enabled and <a href="https://learn.microsoft.com/microsoft-365/enterprise/use-microsoft-365-cdn-with-spo?view=o365-worldwide#default-cdn-origins">the default origins</a> should be added to the tenant. This is only applicable when the CDN has not been enabled yet on the tenant.</p>
-<pre><code class="lang-yaml">Type: Boolean
-Parameter Sets: (All)
-
-Required: False
-Position: Named
-Default value: True
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-iscopilotsearchable">-IsCopilotSearchable</h3>
-<p>Indicates that the organizational assets library should be searchable in the Copilot search experience in Office applications to locate corporate images.</p>
-<p>This setting is only supported when <code>-OrgAssetType</code> is set to <code>ImageDocumentLibrary</code>. When using other <code>OrgAssetType</code> values (for example <code>OfficeTemplateLibrary</code>), this setting will always be <code>False</code> and specifying <code>-IsCopilotSearchable:$true</code> will result in an error.</p>
-<pre><code class="lang-yaml">Type: Boolean
-Parameter Sets: (All)
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-libraryurl">-LibraryUrl</h3>
-<p>The full url of the document library to be marked as one of organization's assets sources</p>
-<pre><code class="lang-yaml">Type: String
-Parameter Sets: (All)
+Aliases:
 
 Required: True
 Position: Named
@@ -169,22 +150,54 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 </code></pre>
-<h3 id="-orgassettype">-OrgAssetType</h3>
-<p>Indicates the type of content in this library.</p>
-<p>ImageDocumentLibrary is the default OrgAssetType and is best used for images. You can access the contents of this library from any site or page in the SharePoint filepicker. OfficeTemplateLibrary is the suggested type for Office files and will show up in the UI of all Office desktop apps and Office online in the templates section.</p>
-<pre><code class="lang-yaml">Type: OrgAssetType
+<h3 id="-user">-User</h3>
+<p>The user principal name or Id of the user to remove its permissions from the PowerApp.</p>
+<pre><code class="lang-yaml">Type: String
 Parameter Sets: (All)
-Accepted values: ImageDocumentLibrary, OfficeTemplateLibrary, BrandColorsList, BrandFontsLibrary, BrandKitLibrary, OfficeFontLibrary, Undefined
 
 Required: False
 Position: Named
-Default value: ImageDocumentLibrary
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 </code></pre>
-<h3 id="-thumbnailurl">-ThumbnailUrl</h3>
-<p>The full url to an image that should be used as a thumbnail for showing this source. The image must reside in the same site as the document library you specify.</p>
+<h3 id="-group">-Group</h3>
+<p>The group display name or Id of the group to remove its permissions from the PowerApp.</p>
 <pre><code class="lang-yaml">Type: String
+Parameter Sets: (All)
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-tenant">-Tenant</h3>
+<p>The (Everyone in organization) permission to remove from the PowerApp</p>
+<pre><code class="lang-yaml">Type: String
+Parameter Sets: (All)
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-asadmin">-AsAdmin</h3>
+<p>If specified, the permission will be removed as an admin. If not specified only the Apps to which the current user already has access can be modified.</p>
+<pre><code class="lang-yaml">Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-force">-Force</h3>
+<p>Providing the Force parameter will skip the confirmation question.</p>
+<pre><code class="lang-yaml">Type: SwitchParameter
 Parameter Sets: (All)
 
 Required: False
