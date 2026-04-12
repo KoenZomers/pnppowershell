@@ -10554,6 +10554,16 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/registerapplication/entraid_new_app_authentication_menu_switch.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/registerapplication/entraid_new_app_authentication_menu_switch.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/registerapplication/entraid_new_app_clientid.png",
       "output": {
         "resource": {
