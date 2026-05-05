@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Get-PnPSearchCrawlLog | PnP PowerShell </title>
+    <title>Add-PnPEntraIDServicePrincipalAppRoleAssignment | PnP PowerShell </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Get-PnPSearchCrawlLog | PnP PowerShell ">
+    <meta name="title" content="Add-PnPEntraIDServicePrincipalAppRoleAssignment | PnP PowerShell ">
     <meta name="generator" content="docfx ">
   <meta name="description" content="PnP PowerShell is an open source, community driven, PowerShell Module designed to work with Microsoft 365.">
     <link rel="shortcut icon" href="https://c.s-microsoft.com/favicon.ico?v2">
@@ -77,61 +77,93 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-                
+                <div class="pnp_tags">Available in the current Nightly Release only.</div>
                   <div class="contribution-panel mobile-hide pull-right">
                       <a href="https://github.com/pnp/powershell/blob/dev/documentation/#L1" title="Edit this page" class="improve-doc-lg"><i class="glyphicon glyphicon-pencil"></i></a>
                   </div>
-  <h1 id="get-pnpsearchcrawllog">Get-PnPSearchCrawlLog</h1>
+  <h1 id="add-pnpentraidserviceprincipalapproleassignment">Add-PnPEntraIDServicePrincipalAppRoleAssignment</h1>
 
 <h2 id="synopsis">SYNOPSIS</h2>
-<p>Returns entries from the SharePoint search crawl log. Make sure you are granted access to the crawl log via the SharePoint search admin center at https://<tenant>-admin.sharepoint.com/_layouts/15/searchadmin/crawllogreadpermission.aspx in order to run this cmdlet.</tenant></p>
+<p><strong>Required Permissions</strong></p>
+<ul>
+<li>Microsoft Graph API: <code>AppRoleAssignment.ReadWrite.All</code>, plus permissions to read the service principal and target principal such as <code>Application.Read.All</code>, <code>Application.ReadWrite.All</code>, <code>Directory.Read.All</code>, <code>Directory.ReadWrite.All</code>, <code>User.Read.All</code>, <code>User.ReadWrite.All</code>, <code>Group.Read.All</code>, or <code>Group.ReadWrite.All</code></li>
+</ul>
+<p>Assigns an Entra ID user or supported group, such as a security-enabled group or Microsoft 365 group, to an enterprise application, optionally with a specific app role.</p>
 <h2 id="syntax">SYNTAX</h2>
-<pre><code class="lang-powershell">Get-PnPSearchCrawlLog [-LogLevel &lt;LogLevel&gt;] [-RowLimit &lt;Int32&gt;] [-Filter &lt;String&gt;]
- [-ContentSource &lt;ContentSource&gt;] [-StartDate &lt;DateTime&gt;] [-EndDate &lt;DateTime&gt;] [-RawFormat] [-IncreaseRequestTimeout]
- [-Connection &lt;PnPConnection&gt;] 
+<h3 id="user">User</h3>
+<pre><code class="lang-powershell">Add-PnPEntraIDServicePrincipalAppRoleAssignment -User &lt;EntraIDUserPipeBind&gt; [-AppRole &lt;ServicePrincipalAvailableAppRoleBind&gt;] [-Resource &lt;ServicePrincipalPipeBind&gt;] [-Connection &lt;PnPConnection&gt;]
+</code></pre>
+<h3 id="group">Group</h3>
+<pre><code class="lang-powershell">Add-PnPEntraIDServicePrincipalAppRoleAssignment -Group &lt;EntraIDGroupPipeBind&gt; [-AppRole &lt;ServicePrincipalAvailableAppRoleBind&gt;] [-Resource &lt;ServicePrincipalPipeBind&gt;] [-Connection &lt;PnPConnection&gt;]
 </code></pre>
 <h2 id="description">DESCRIPTION</h2>
-<p>Allows to retrieve entries from the SharePoint search crawl log. To be able to use this command you need to grant access to the crawl log via the SharePoint search admin center at https://<tenant>-admin.sharepoint.com/_layouts/15/searchadmin/crawllogreadpermission.aspx.</tenant></p>
+<p>Allows assigning an Entra ID user or supported group to an enterprise application represented by a service principal. If the enterprise application exposes one or more user-targeted app roles, provide the app role to assign through <code>-AppRole</code>. If it does not expose user-targeted app roles, the cmdlet assigns the default access role automatically.</p>
+<p>If you pipe in an app role instance retrieved through <code>Get-PnPEntraIDServicePrincipalAvailableAppRole</code>, the owning service principal is inferred automatically and you can omit <code>-Resource</code>.</p>
+<p>Supported groups include security-enabled groups and Microsoft 365 groups.</p>
 <h2 id="examples">EXAMPLES</h2>
 <h3 id="example-1">EXAMPLE 1</h3>
-<pre><code class="lang-powershell">Get-PnPSearchCrawlLog
+<pre><code class="lang-powershell">Add-PnPEntraIDServicePrincipalAppRoleAssignment -User &quot;john@contoso.com&quot; -Resource &quot;Contoso CRM&quot; -AppRole &quot;Reader&quot;
 </code></pre>
-<p>Returns the last 100 crawl log entries for site content.</p>
+<p>Assigns the user <code>john@contoso.com</code> to the enterprise application <code>Contoso CRM</code> with the <code>Reader</code> app role.</p>
 <h3 id="example-2">EXAMPLE 2</h3>
-<pre><code class="lang-powershell">Get-PnPSearchCrawlLog -Filter &quot;https://contoso-my.sharepoint.com/personal&quot;
+<pre><code class="lang-powershell">Add-PnPEntraIDServicePrincipalAppRoleAssignment -Group &quot;Sales Team&quot; -Resource &quot;Contoso CRM&quot; -AppRole &quot;Approver&quot;
 </code></pre>
-<p>Returns the last 100 crawl log entries for OneDrive content.</p>
+<p>Assigns the group <code>Sales Team</code> to the enterprise application <code>Contoso CRM</code> with the <code>Approver</code> app role.</p>
 <h3 id="example-3">EXAMPLE 3</h3>
-<pre><code class="lang-powershell">Get-PnPSearchCrawlLog -ContentSource UserProfiles
+<pre><code class="lang-powershell">Get-PnPEntraIDServicePrincipal -AppName &quot;Contoso CRM&quot; | Get-PnPEntraIDServicePrincipalAvailableAppRole -Identity &quot;Reader&quot; | Add-PnPEntraIDServicePrincipalAppRoleAssignment -User &quot;john@contoso.com&quot;
 </code></pre>
-<p>Returns the last 100 crawl log entries for user profiles.</p>
+<p>Retrieves the <code>Reader</code> app role from the <code>Contoso CRM</code> enterprise application and assigns it to the user <code>john@contoso.com</code>.</p>
 <h3 id="example-4">EXAMPLE 4</h3>
-<pre><code class="lang-powershell">Get-PnPSearchCrawlLog -ContentSource UserProfiles -Filter &quot;mikael&quot;
+<pre><code class="lang-powershell">Add-PnPEntraIDServicePrincipalAppRoleAssignment -Group &quot;6d4d2db8-6f2a-49b4-bc46-c5d43a91d47f&quot; -Resource &quot;Contoso Intranet&quot;
 </code></pre>
-<p>Returns the last 100 crawl log entries for user profiles with the term &quot;mikael&quot; in the user principal name.</p>
-<h3 id="example-5">EXAMPLE 5</h3>
-<pre><code class="lang-powershell">Get-PnPSearchCrawlLog -ContentSource Sites -LogLevel Error -RowLimit 10
-</code></pre>
-<p>Returns the last 10 crawl log entries with a state of Error for site content.</p>
-<h3 id="example-6">EXAMPLE 6</h3>
-<pre><code class="lang-powershell">Get-PnPSearchCrawlLog -EndDate (Get-Date).AddDays(-100)
-</code></pre>
-<p>Returns the last 100 crawl log entries up until 100 days ago.</p>
-<h3 id="example-7">EXAMPLE 7</h3>
-<pre><code class="lang-powershell">Get-PnPSearchCrawlLog -RowLimit 3 -RawFormat
-</code></pre>
-<p>Returns the last 3 crawl log entries showing the raw crawl log data.</p>
-<h3 id="example-8">EXAMPLE 8</h3>
-<pre><code class="lang-powershell">$ClientID= &quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;
-$env:SharePointPnPHttpTimeout = -1 #👈
-Connect-PnPOnline -Url https://&lt;tenant&gt;-admin.sharepoint.com/ -Interactive -ClientId $ClientID -ErrorAction Stop # 👈
-
-Get-PnPSearchCrawlLog -Filter &quot;https://contoso-my.sharepoint.com/sites/Intranet&quot; -IncreaseRequestTimeout
-</code></pre>
-<p>Increases the request timeout allowing the call to last up to 3 minutes. The <code>ClientRuntimeContext</code> enforces a three-minute limit; when increasing the timeout to its maximum of three minutes, this threshold may still be exceeded.</p>
+<p>Assigns the group with the provided id to the <code>Contoso Intranet</code> enterprise application using the default access role. This works when the application does not expose any user-targeted app roles.</p>
 <h2 id="parameters">PARAMETERS</h2>
+<h3 id="-user">-User</h3>
+<p>The id, user principal name, or instance of the Entra ID user to assign to the enterprise application.</p>
+<pre><code class="lang-yaml">Type: EntraIDUserPipeBind
+Parameter Sets: User
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-group">-Group</h3>
+<p>The id, display name, or group instance of the Entra ID group to assign to the enterprise application. This can be a group object returned by <code>Get-PnPEntraIDGroup</code>.</p>
+<pre><code class="lang-yaml">Type: EntraIDGroupPipeBind
+Parameter Sets: Group
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-approle">-AppRole</h3>
+<p>The object id, value, or instance of the application role to assign. If omitted, the cmdlet will assign the default access role when the enterprise application does not expose any user-targeted app roles. When you pipe in an app role instance, the resource service principal is inferred automatically.</p>
+<pre><code class="lang-yaml">Type: ServicePrincipalAvailableAppRoleBind
+Parameter Sets: User, Group
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+</code></pre>
+<h3 id="-resource">-Resource</h3>
+<p>The object id, name, or instance of the enterprise application service principal. This parameter can be omitted when an app role instance is provided through the pipeline.</p>
+<pre><code class="lang-yaml">Type: ServicePrincipalPipeBind
+Parameter Sets: User, Group
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+</code></pre>
 <h3 id="-connection">-Connection</h3>
-<p>Optional connection to be used by the cmdlet. Retrieve the value for this parameter by either specifying -ReturnConnection on Connect-PnPOnline or by executing Get-PnPConnection.</p>
+<p>Optional connection to be used by the cmdlet. Retrieve the value for this parameter by either specifying <code>-ReturnConnection</code> on <code>Connect-PnPOnline</code> or by executing <code>Get-PnPConnection</code>.</p>
 <pre><code class="lang-yaml">Type: PnPConnection
 Parameter Sets: (All)
 
@@ -141,98 +173,9 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 </code></pre>
-<h3 id="-contentsource">-ContentSource</h3>
-<p>Content to retrieve (Sites, User Profiles). Defaults to Sites.</p>
-<pre><code class="lang-yaml">Type: ContentSource
-Parameter Sets: (All)
-Accepted values: Sites, UserProfiles
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-enddate">-EndDate</h3>
-<p>End date to stop getting entries from. Default to current time.</p>
-<pre><code class="lang-yaml">Type: DateTime
-Parameter Sets: (All)
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-filter">-Filter</h3>
-<p>Filter to limit what is being returned. Has to be a URL prefix for SharePoint content, and part of a user principal name for user profiles. Wildcard characters are not supported.</p>
-<pre><code class="lang-yaml">Type: String
-Parameter Sets: (All)
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-increaserequesttimeout">-IncreaseRequestTimeout</h3>
-<p>Extend the request timeout to permit command execution for up to 3 minutes.</p>
-<pre><code class="lang-yaml">Type: Switch
-Parameter Sets: (All)
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-loglevel">-LogLevel</h3>
-<p>Filter what log entries to return (All, Success, Warning, Error). Defaults to All</p>
-<pre><code class="lang-yaml">Type: LogLevel
-Parameter Sets: (All)
-Accepted values: Success, Warning, Error, All
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-rawformat">-RawFormat</h3>
-<p>Show raw crawl log data</p>
-<pre><code class="lang-yaml">Type: SwitchParameter
-Parameter Sets: (All)
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-rowlimit">-RowLimit</h3>
-<p>Number of entries to return. Defaults to 100.</p>
-<pre><code class="lang-yaml">Type: Int32
-Parameter Sets: (All)
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
-<h3 id="-startdate">-StartDate</h3>
-<p>Start date to start getting entries from. Defaults to start of time.</p>
-<pre><code class="lang-yaml">Type: DateTime
-Parameter Sets: (All)
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-</code></pre>
 <h2 id="related-links">RELATED LINKS</h2>
-<p><a href="https://aka.ms/m365pnp">Microsoft 365 Patterns and Practices</a></p>
+<p><a href="https://aka.ms/m365pnp">Microsoft 365 Patterns and Practices</a>
+<a href="https://learn.microsoft.com/graph/api/serviceprincipal-post-approleassignedto">Microsoft Graph documentation</a></p>
 
 </article>
           </div>

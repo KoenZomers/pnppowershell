@@ -83,7 +83,7 @@
                   </div>
   <h1 id="pnp-powershell-cmdlets">PnP PowerShell cmdlets</h1>
 
-<p>PnP PowerShell exists out of 790 cmdlets which can help you in setting up, configuring, maintaining and using various Microsoft 365 products from one single connection. Each of the cmdlets is documented to aid in learning how to use it. Find the available cmdlets below.</p>
+<p>PnP PowerShell exists out of 799 cmdlets which can help you in setting up, configuring, maintaining and using various Microsoft 365 products from one single connection. Each of the cmdlets is documented to aid in learning how to use it. Find the available cmdlets below.</p>
 <p><sup>1</sup>: Only available in the latest nightly build. All the others can also be used using the latest stable release.<br>
 <sup>2</sup>: Cmdlet is an alias of another cmdlet, used to provide backwards compatibility.</p>
 <h2 id="add">Add</h2>
@@ -109,6 +109,7 @@
 <li><a href="Add-PnPEntraIDGroupMember.html">Add-PnPEntraIDGroupMember</a></li>
 <li><a href="Add-PnPEntraIDGroupOwner.html">Add-PnPEntraIDGroupOwner</a></li>
 <li><a href="Add-PnPEntraIDServicePrincipalAppRole.html">Add-PnPEntraIDServicePrincipalAppRole</a></li>
+<li><a href="Add-PnPEntraIDServicePrincipalAppRoleAssignment.html">Add-PnPEntraIDServicePrincipalAppRoleAssignment</a> <sup>1</sup></li>
 <li><a href="Add-PnPEventReceiver.html">Add-PnPEventReceiver</a></li>
 <li><a href="Add-PnPField.html">Add-PnPField</a></li>
 <li><a href="Add-PnPFieldFromXml.html">Add-PnPFieldFromXml</a></li>
@@ -347,6 +348,7 @@
 <li><a href="Get-PnPEntraIDGroupMember.html">Get-PnPEntraIDGroupMember</a></li>
 <li><a href="Get-PnPEntraIDGroupOwner.html">Get-PnPEntraIDGroupOwner</a></li>
 <li><a href="Get-PnPEntraIDServicePrincipal.html">Get-PnPEntraIDServicePrincipal</a></li>
+<li><a href="Get-PnPEntraIDServicePrincipalAppRoleAssignment.html">Get-PnPEntraIDServicePrincipalAppRoleAssignment</a> <sup>1</sup></li>
 <li><a href="Get-PnPEntraIDServicePrincipalAssignedAppRole.html">Get-PnPEntraIDServicePrincipalAssignedAppRole</a></li>
 <li><a href="Get-PnPEntraIDServicePrincipalAvailableAppRole.html">Get-PnPEntraIDServicePrincipalAvailableAppRole</a></li>
 <li><a href="Get-PnPEntraIDUser.html">Get-PnPEntraIDUser</a></li>
@@ -400,6 +402,7 @@
 <li><a href="Get-PnPListItemVersion.html">Get-PnPListItemVersion</a></li>
 <li><a href="Get-PnPListPermissions.html">Get-PnPListPermissions</a></li>
 <li><a href="Get-PnPListRecordDeclaration.html">Get-PnPListRecordDeclaration</a></li>
+<li><a href="Get-PnPListVersionPolicy.html">Get-PnPListVersionPolicy</a> <sup>1</sup></li>
 <li><a href="Get-PnPManagedAppId.html">Get-PnPManagedAppId</a></li>
 <li><a href="Get-PnPMasterPage.html">Get-PnPMasterPage</a></li>
 <li><a href="Get-PnPMessageCenterAnnouncement.html">Get-PnPMessageCenterAnnouncement</a></li>
@@ -646,6 +649,7 @@
 <li><a href="New-PnPSiteFileVersionBatchDeleteJob.html">New-PnPSiteFileVersionBatchDeleteJob</a></li>
 <li><a href="New-PnPSiteFileVersionExpirationReportJob.html">New-PnPSiteFileVersionExpirationReportJob</a></li>
 <li><a href="New-PnPSiteGroup.html">New-PnPSiteGroup</a></li>
+<li><a href="New-PnPSiteManageVersionPolicyJob.html">New-PnPSiteManageVersionPolicyJob</a> <sup>1</sup></li>
 <li><a href="New-PnPSiteTemplate.html">New-PnPSiteTemplate</a></li>
 <li><a href="New-PnPSiteTemplateFromFolder.html">New-PnPSiteTemplateFromFolder</a></li>
 <li><a href="New-PnPTeamsApp.html">New-PnPTeamsApp</a></li>
@@ -716,6 +720,7 @@
 <li><a href="Remove-PnPEntraIDGroup.html">Remove-PnPEntraIDGroup</a></li>
 <li><a href="Remove-PnPEntraIDGroupMember.html">Remove-PnPEntraIDGroupMember</a></li>
 <li><a href="Remove-PnPEntraIDGroupOwner.html">Remove-PnPEntraIDGroupOwner</a></li>
+<li><a href="Remove-PnPEntraIDServicePrincipalAppRoleAssignment.html">Remove-PnPEntraIDServicePrincipalAppRoleAssignment</a> <sup>1</sup></li>
 <li><a href="Remove-PnPEntraIDServicePrincipalAssignedAppRole.html">Remove-PnPEntraIDServicePrincipalAssignedAppRole</a></li>
 <li><a href="Remove-PnPEntraIDUser.html">Remove-PnPEntraIDUser</a></li>
 <li><a href="Remove-PnPEventReceiver.html">Remove-PnPEventReceiver</a></li>
@@ -902,10 +907,12 @@
 <li><a href="Set-PnPEntraIDAppSitePermission.html">Set-PnPEntraIDAppSitePermission</a></li>
 <li><a href="Set-PnPEntraIDGroup.html">Set-PnPEntraIDGroup</a></li>
 <li><a href="Set-PnPField.html">Set-PnPField</a></li>
+<li><a href="Set-PnPFileArchiveState.html">Set-PnPFileArchiveState</a> <sup>1</sup></li>
 <li><a href="Set-PnPFileCheckedIn.html">Set-PnPFileCheckedIn</a></li>
 <li><a href="Set-PnPFileCheckedOut.html">Set-PnPFileCheckedOut</a></li>
 <li><a href="Set-PnPFileRetentionLabel.html">Set-PnPFileRetentionLabel</a></li>
 <li><a href="Set-PnPFileVersion.html">Set-PnPFileVersion</a> <sup>1</sup></li>
+<li><a href="Set-PnPFolderArchiveState.html">Set-PnPFolderArchiveState</a> <sup>1</sup></li>
 <li><a href="Set-PnPFolderPermission.html">Set-PnPFolderPermission</a></li>
 <li><a href="Set-PnPFooter.html">Set-PnPFooter</a></li>
 <li><a href="Set-PnPGraphSubscription.html">Set-PnPGraphSubscription</a></li>
@@ -926,6 +933,7 @@
 <li><a href="Set-PnPListItemPermission.html">Set-PnPListItemPermission</a></li>
 <li><a href="Set-PnPListPermission.html">Set-PnPListPermission</a></li>
 <li><a href="Set-PnPListRecordDeclaration.html">Set-PnPListRecordDeclaration</a></li>
+<li><a href="Set-PnPListVersionPolicy.html">Set-PnPListVersionPolicy</a> <sup>1</sup></li>
 <li><a href="Set-PnPManagedAppId.html">Set-PnPManagedAppId</a></li>
 <li><a href="Set-PnPMasterPage.html">Set-PnPMasterPage</a></li>
 <li><a href="Set-PnPMessageCenterAnnouncementAsArchived.html">Set-PnPMessageCenterAnnouncementAsArchived</a></li>
@@ -1013,6 +1021,7 @@
 <h2 id="start">Start</h2>
 <ul>
 <li><a href="Start-PnPEnterpriseAppInsightsReport.html">Start-PnPEnterpriseAppInsightsReport</a></li>
+<li><a href="Start-PnPTenantRename.html">Start-PnPTenantRename</a> <sup>1</sup></li>
 <li><a href="Start-PnPTraceLog.html">Start-PnPTraceLog</a></li>
 </ul>
 <h2 id="stop">Stop</h2>

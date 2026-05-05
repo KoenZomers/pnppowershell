@@ -420,9 +420,6 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "cmdlets/Add-PnPAzureADServicePrincipalAppRoleAssignment.md",
       "output": {
@@ -551,6 +548,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Add-PnPEntraIDServicePrincipalAppRole.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Add-PnPEntraIDServicePrincipalAppRoleAssignment.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Add-PnPEntraIDServicePrincipalAppRoleAssignment.html"
         }
       },
       "version": ""
@@ -2116,9 +2123,6 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "cmdlets/Get-PnPAzureADServicePrincipalAppRoleAssignment.md",
       "output": {
@@ -2544,6 +2548,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Get-PnPEntraIDServicePrincipal.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPEntraIDServicePrincipalAppRoleAssignment.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPEntraIDServicePrincipalAppRoleAssignment.html"
         }
       },
       "version": ""
@@ -3074,6 +3088,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Get-PnPListRecordDeclaration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPListVersionPolicy.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPListVersionPolicy.html"
         }
       },
       "version": ""
@@ -5290,6 +5314,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "cmdlets/New-PnPSiteManageVersionPolicyJob.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/New-PnPSiteManageVersionPolicyJob.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "cmdlets/New-PnPSiteTemplate.md",
       "output": {
         ".html": {
@@ -5699,9 +5733,6 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "cmdlets/Remove-PnPAzureADServicePrincipalAppRoleAssignment.md",
       "output": {
@@ -5847,6 +5878,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Remove-PnPEntraIDGroupOwner.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Remove-PnPEntraIDServicePrincipalAppRoleAssignment.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Remove-PnPEntraIDServicePrincipalAppRoleAssignment.html"
         }
       },
       "version": ""
@@ -7383,6 +7424,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "cmdlets/Set-PnPFileArchiveState.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Set-PnPFileArchiveState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "cmdlets/Set-PnPFileCheckedIn.md",
       "output": {
         ".html": {
@@ -7417,6 +7468,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Set-PnPFileVersion.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Set-PnPFolderArchiveState.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Set-PnPFolderArchiveState.html"
         }
       },
       "version": ""
@@ -7617,6 +7678,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Set-PnPListRecordDeclaration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Set-PnPListVersionPolicy.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Set-PnPListVersionPolicy.html"
         }
       },
       "version": ""
@@ -8457,6 +8528,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Start-PnPEnterpriseAppInsightsReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Start-PnPTenantRename.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Start-PnPTenantRename.html"
         }
       },
       "version": ""
