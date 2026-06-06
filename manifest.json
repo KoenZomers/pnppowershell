@@ -1,4 +1,36 @@
 {
+  "sitemap": {
+    "fileOptions": {
+      "articles/**.md": {
+        "baseUrl": "https://pnp.github.io/powershell/",
+        "changefreq": "monthly",
+        "priority": 0.7
+      },
+      "cmdlets/**.md": {
+        "baseUrl": "https://pnp.github.io/powershell/",
+        "changefreq": "weekly",
+        "priority": 0.6
+      },
+      "articles/index.md": {
+        "baseUrl": "https://pnp.github.io/powershell/",
+        "changefreq": "weekly",
+        "priority": 0.8
+      },
+      "cmdlets/index.md": {
+        "baseUrl": "https://pnp.github.io/powershell/",
+        "changefreq": "weekly",
+        "priority": 0.9
+      },
+      "index.md": {
+        "baseUrl": "https://pnp.github.io/powershell/",
+        "changefreq": "weekly",
+        "priority": 1
+      }
+    },
+    "baseUrl": "https://pnp.github.io/powershell/",
+    "changefreq": "weekly",
+    "priority": 0.5
+  },
   "source_base_path": "/home/runner/work/pnppowershell/pnppowershell/dev/pages",
   "xrefmap": "xrefmap.yml",
   "files": [
@@ -11,9 +43,6 @@
       }
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "articles/acsdeprecation.md",
       "output": {
@@ -54,9 +83,6 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "articles/azurecloudshell.md",
       "output": {
@@ -92,6 +118,16 @@
       "output": {
         ".html": {
           "relative_path": "articles/buildingdocker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/buildingdocumentation.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/buildingdocumentation.html"
         }
       },
       "version": ""
@@ -167,9 +203,6 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "articles/environmentvariables.md",
       "output": {
@@ -303,6 +336,9 @@
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
+        ".json": {
+          "relative_path": "articles/toc.json"
+        },
         ".html": {
           "relative_path": "articles/toc.html"
         }
@@ -440,9 +476,6 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "cmdlets/Add-PnPBrandCenterFontPackage.md",
       "output": {
@@ -2494,6 +2527,36 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPEntraIDAppFilePermission.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPEntraIDAppFilePermission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPEntraIDAppListItemPermission.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPEntraIDAppListItemPermission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPEntraIDAppListPermission.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPEntraIDAppListPermission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "cmdlets/Get-PnPEntraIDAppPermission.md",
       "output": {
         ".html": {
@@ -2818,6 +2881,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Get-PnPFooter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPGeoMoveCrossCompatibilityStatus.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPGeoMoveCrossCompatibilityStatus.html"
         }
       },
       "version": ""
@@ -3248,6 +3321,16 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Get-PnPMicrosoft365Roadmap.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPMultiGeoCompanyAllowedDataLocation.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPMultiGeoCompanyAllowedDataLocation.html"
         }
       },
       "version": ""
@@ -4534,6 +4617,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "cmdlets/Get-PnPUserAndContentMoveState.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Get-PnPUserAndContentMoveState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "cmdlets/Get-PnPUserOneDriveQuota.md",
       "output": {
         ".html": {
@@ -4708,6 +4801,36 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Grant-PnPAzureADAppSitePermission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Grant-PnPEntraIDAppFilePermission.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Grant-PnPEntraIDAppFilePermission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Grant-PnPEntraIDAppListItemPermission.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Grant-PnPEntraIDAppListItemPermission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Grant-PnPEntraIDAppListPermission.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Grant-PnPEntraIDAppListPermission.html"
         }
       },
       "version": ""
@@ -7114,6 +7237,36 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "cmdlets/Revoke-PnPEntraIDAppFilePermission.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Revoke-PnPEntraIDAppFilePermission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Revoke-PnPEntraIDAppListItemPermission.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Revoke-PnPEntraIDAppListItemPermission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Revoke-PnPEntraIDAppListPermission.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Revoke-PnPEntraIDAppListPermission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "cmdlets/Revoke-PnPEntraIDAppSitePermission.md",
       "output": {
         ".html": {
@@ -7388,6 +7541,36 @@
       "output": {
         ".html": {
           "relative_path": "cmdlets/Set-PnPDocumentSetField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Set-PnPEntraIDAppFilePermission.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Set-PnPEntraIDAppFilePermission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Set-PnPEntraIDAppListItemPermission.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Set-PnPEntraIDAppListItemPermission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cmdlets/Set-PnPEntraIDAppListPermission.md",
+      "output": {
+        ".html": {
+          "relative_path": "cmdlets/Set-PnPEntraIDAppListPermission.html"
         }
       },
       "version": ""
@@ -8846,6 +9029,9 @@
       "type": "Toc",
       "source_relative_path": "cmdlets/toc.yml",
       "output": {
+        ".json": {
+          "relative_path": "cmdlets/toc.json"
+        },
         ".html": {
           "relative_path": "cmdlets/toc.html"
         }
@@ -10144,6 +10330,16 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/favicon-pnp.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon-pnp.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/logo.svg",
       "output": {
         "resource": {
@@ -10723,9 +10919,22 @@
       "version": ""
     },
     {
+      "type": "Resource",
+      "source_relative_path": "llms.txt",
+      "output": {
+        "resource": {
+          "relative_path": "llms.txt"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
+        ".json": {
+          "relative_path": "toc.json"
+        },
         ".html": {
           "relative_path": "toc.html"
         }
