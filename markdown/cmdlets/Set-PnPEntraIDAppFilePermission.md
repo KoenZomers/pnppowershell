@@ -1,9 +1,9 @@
 ---
 applicable: SharePoint Online
-external help file: PnP.PowerShell.dll-Help.xml
-title: Set-PnPEntraIDAppFilePermission
 tags: Available in the current Nightly Release only.
 schema: 2.0.0
+title: Set-PnPEntraIDAppFilePermission
+external help file: PnP.PowerShell.dll-Help.xml
 Module Name: PnP.PowerShell
 online version: https://pnp.github.io/powershell/cmdlets/Set-PnPEntraIDAppFilePermission.html
 ---
