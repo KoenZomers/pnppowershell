@@ -1,11 +1,11 @@
 ---
-Module Name: PnP.PowerShell
-external help file: PnP.PowerShell.dll-Help.xml
-title: Revoke-PnPEntraIDAppFilePermission
-tags: Available in the current Nightly Release only.
-applicable: SharePoint Online
 schema: 2.0.0
+title: Revoke-PnPEntraIDAppFilePermission
+Module Name: PnP.PowerShell
+tags: Available in the current Nightly Release only.
 online version: https://pnp.github.io/powershell/cmdlets/Revoke-PnPEntraIDAppFilePermission.html
+applicable: SharePoint Online
+external help file: PnP.PowerShell.dll-Help.xml
 ---
    
 # Revoke-PnPEntraIDAppFilePermission
