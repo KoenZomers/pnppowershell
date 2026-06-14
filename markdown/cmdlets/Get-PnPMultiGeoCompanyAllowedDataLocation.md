@@ -1,10 +1,10 @@
 ---
-schema: 2.0.0
-title: Get-PnPMultiGeoCompanyAllowedDataLocation
-Module Name: PnP.PowerShell
 tags: Available in the current Nightly Release only.
 online version: https://pnp.github.io/powershell/cmdlets/Get-PnPMultiGeoCompanyAllowedDataLocation.html
 applicable: SharePoint Online
+schema: 2.0.0
+Module Name: PnP.PowerShell
+title: Get-PnPMultiGeoCompanyAllowedDataLocation
 external help file: PnP.PowerShell.dll-Help.xml
 ---
   

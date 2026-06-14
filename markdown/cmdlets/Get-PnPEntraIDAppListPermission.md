@@ -1,10 +1,10 @@
 ---
-schema: 2.0.0
-title: Get-PnPEntraIDAppListPermission
-Module Name: PnP.PowerShell
 tags: Available in the current Nightly Release only.
 online version: https://pnp.github.io/powershell/cmdlets/Get-PnPEntraIDAppListPermission.html
 applicable: SharePoint Online
+schema: 2.0.0
+Module Name: PnP.PowerShell
+title: Get-PnPEntraIDAppListPermission
 external help file: PnP.PowerShell.dll-Help.xml
 ---
    
